@@ -1,0 +1,63 @@
+ext {
+    kotlinVersion = '1.3.61'
+    appcompatVersion = '1.1.0'
+    materialVersion = '1.1.0'
+    swipeRefreshVersion = '1.0.0'
+    retrofitVersion = '2.7.1'
+    daggerVersion = '2.25.4'
+    rxjavaVersion = '2.1.0'
+    constraintLayoutVersion = '1.1.3'
+    ktxVersion = '1.1.0'
+    recyclerViewVersion = '1.1.0'
+    cardViewVersion = '1.0.0'
+    glideVersion = '4.9.0'
+    lifeCycleVersion = '2.1.0'
+    dataBindingCompilerVersion = '3.1.4'
+    retrofitGsonVersion = '2.4.0'
+    okHttpLoggingVersion = '3.10.0'
+    okHttpUrlConnecitonVersion = '3.6.0'
+    idlingResourceVersion = '3.2.0'
+    shimmerVersion = '0.4.0'
+    junitVersion = '4.12'
+    mockitoCoreVersion = '2.19.0'
+    mocktioInlineVersion = '2.13.0'
+    archCoreTestingVersion = '1.1.1'
+    extJunitVersion = '1.1.1'
+    espressoVersion = '3.2.0'
+
+    appDependencies = [
+            kotlin                : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",
+            appcompat             : "androidx.appcompat:appcompat:${appcompatVersion}",
+            material              : "com.google.android.material:material:${materialVersion}",
+            swipeRefreshLayout    : "androidx.swiperefreshlayout:swiperefreshlayout:${swipeRefreshVersion}",
+            ktx                   : "androidx.core:core-ktx:${ktxVersion}",
+            constraintlayout      : "androidx.constraintlayout:constraintlayout:${constraintLayoutVersion}",
+            recyclerview          : "androidx.recyclerview:recyclerview:${recyclerViewVersion}",
+            cardview              : "androidx.cardview:cardview:${cardViewVersion}",
+            glide                 : "com.github.bumptech.glide:glide:${glideVersion}",
+            lifecycle             : "androidx.lifecycle:lifecycle-extensions:${lifeCycleVersion}",
+            compiler              : "com.android.databinding:compiler:${dataBindingCompilerVersion}",
+            retrofit              : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+            retrofitRxjavaAdapter : "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}",
+            retrofitGson          : "com.squareup.retrofit2:converter-gson:${retrofitGsonVersion}",
+            okHttpInterceptor     : "com.squareup.okhttp3:logging-interceptor:${okHttpLoggingVersion}",
+            okHttpUrlConnection   : "com.squareup.okhttp3:okhttp-urlconnection:${okHttpUrlConnecitonVersion}",
+            dagger                : "com.google.dagger:dagger:${daggerVersion}",
+            daggerAndroid         : "com.google.dagger:dagger-android:${daggerVersion}",
+            daggerAndroidSupport  : "com.google.dagger:dagger-android-support:${daggerVersion}",
+            espressoIdlingResource: "androidx.test.espresso:espresso-idling-resource:${idlingResourceVersion}",
+            shimmer               : "com.facebook.shimmer:shimmer:${shimmerVersion}",
+            daggerAndroidProcessor: "com.google.dagger:dagger-android-processor:${daggerVersion}",
+            daggerCompiler        : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            junit                 : "junit:junit:${junitVersion}",
+            mockitoCore           : "org.mockito:mockito-core:${mockitoCoreVersion}",
+            mockitoInline         : "org.mockito:mockito-inline:${mocktioInlineVersion}",
+            archCore              : "android.arch.core:core-testing:${archCoreTestingVersion}",
+            junitExt              : "androidx.test.ext:junit:${extJunitVersion}",
+            espressoCore          : "androidx.test.espresso:espresso-core:${espressoVersion}",
+            espressoContrib       : "androidx.test.espresso:espresso-contrib:${espressoVersion}",
+            espressoIntents       : "androidx.test.espresso:espresso-intents:${espressoVersion}",
+            espressoIdling        : "androidx.test.espresso.idling:idling-concurrent:${espressoVersion}"
+
+    ]
+}

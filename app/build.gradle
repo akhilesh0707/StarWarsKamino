@@ -1,0 +1,67 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+    defaultConfig {
+        applicationId "com.starwars.kamino"
+        minSdkVersion 15
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation appDependencies.ktx
+    implementation appDependencies.glide
+    implementation appDependencies.kotlin
+    implementation appDependencies.dagger
+    implementation appDependencies.shimmer
+    implementation appDependencies.retrofit
+    implementation appDependencies.cardview
+    implementation appDependencies.appcompat
+    implementation appDependencies.material
+    implementation appDependencies.swipeRefreshLayout
+    implementation appDependencies.lifecycle
+    implementation appDependencies.retrofitGson
+    implementation appDependencies.recyclerview
+    implementation appDependencies.daggerAndroid
+    implementation appDependencies.constraintlayout
+    implementation appDependencies.okHttpInterceptor
+    implementation appDependencies.okHttpUrlConnection
+    implementation appDependencies.daggerAndroidSupport
+    implementation appDependencies.retrofitRxjavaAdapter
+    implementation appDependencies.espressoIdlingResource
+
+    kapt appDependencies.compiler
+    kapt appDependencies.daggerCompiler
+    kapt appDependencies.daggerAndroidProcessor
+
+    testImplementation appDependencies.junit
+    testImplementation appDependencies.archCore
+    testImplementation appDependencies.mockitoCore
+    testImplementation appDependencies.mockitoInline
+
+    androidTestImplementation appDependencies.junitExt
+    androidTestImplementation appDependencies.espressoCore
+    androidTestImplementation appDependencies.espressoIdling
+    androidTestImplementation appDependencies.espressoContrib
+    androidTestImplementation appDependencies.espressoIntents
+}
