@@ -4,15 +4,15 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
+
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
     defaultConfig {
         applicationId "com.starwars.kamino"
-        minSdkVersion 15
-        minSdkVersion 19
+        minSdkVersion 23
         targetSdkVersion 29
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -34,22 +34,30 @@ dependencies {
     implementation appDependencies.kotlin
     implementation appDependencies.dagger
     implementation appDependencies.shimmer
-    implementation appDependencies.retrofit
     implementation appDependencies.cardview
     implementation appDependencies.appcompat
     implementation appDependencies.material
     implementation appDependencies.swipeRefreshLayout
     implementation appDependencies.lifecycle
-    implementation appDependencies.retrofitGson
     implementation appDependencies.recyclerview
-    implementation appDependencies.daggerAndroid
     implementation appDependencies.constraintlayout
+    implementation appDependencies.timber
+
+    // Retrofit
+    implementation appDependencies.retrofit
+    implementation appDependencies.retrofitGson
     implementation appDependencies.okHttpInterceptor
     implementation appDependencies.okHttpUrlConnection
-    implementation appDependencies.daggerAndroidSupport
     implementation appDependencies.retrofitRxjavaAdapter
     implementation appDependencies.espressoIdlingResource
 
+    //RxJava RxAndroid
+    implementation appDependencies.rxJava
+    implementation appDependencies.rxAndroid
+
+    // Dagger
+    implementation appDependencies.daggerAndroid
+    implementation appDependencies.daggerAndroidSupport
     kapt appDependencies.compiler
     kapt appDependencies.daggerCompiler
     kapt appDependencies.daggerAndroidProcessor
