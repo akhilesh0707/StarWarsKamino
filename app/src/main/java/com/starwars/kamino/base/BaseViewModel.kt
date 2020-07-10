@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.starwars.kamino.di.utils.SchedulerProvider
 import io.reactivex.disposables.CompositeDisposable
 
-abstract class DisposableViewModel : ViewModel() {
+abstract class BaseViewModel : ViewModel() {
     protected val disposable = CompositeDisposable()
     protected val schedulerProvider = SchedulerProvider.getInstance()
 

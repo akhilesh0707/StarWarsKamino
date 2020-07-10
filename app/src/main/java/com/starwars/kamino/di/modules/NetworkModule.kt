@@ -21,11 +21,6 @@ import java.util.concurrent.TimeUnit
 @Module
 class NetworkModule {
 
-    companion object {
-        private const val OKHTTP_TIMEOUT_SECONDS = 60L
-        private const val BASE_URL = "https://private-anon-509bb59a02-starwars2.apiary-mock.com/"
-    }
-
     @Provides
     fun provideNetworkConnectionInterceptor(context: Context) =
         NetworkConnectionInterceptor(context)
@@ -74,4 +69,8 @@ class NetworkModule {
     fun providePlanetServiceBase(retrofit: Retrofit): PlanetServiceBase =
         retrofit.create(PlanetServiceBase::class.java)
 
+    companion object {
+        private const val OKHTTP_TIMEOUT_SECONDS = 60L
+        private const val BASE_URL = "https://private-anon-509bb59a02-starwars2.apiary-mock.com/"
+    }
 }
