@@ -9,6 +9,7 @@ import com.starwars.kamino.BuildConfig
 import com.starwars.kamino.R
 import com.starwars.kamino.di.scopes.ApplicationScope
 import com.starwars.kamino.ui.planet.api.PlanetServiceBase
+import com.starwars.kamino.ui.residents.api.ResidentServiceBase
 import com.starwars.kamino.utils.NetworkConnectionInterceptor
 import dagger.Module
 import dagger.Provides
@@ -59,7 +60,7 @@ class NetworkModule {
     @Provides
     @ApplicationScope
     fun provideRequestOption(): RequestOptions {
-        return RequestOptions.placeholderOf(R.drawable.ic_launcher_background)
+        return RequestOptions.placeholderOf(R.drawable.ic_launcher_foreground)
             .error(R.drawable.ic_launcher_foreground)
     }
 
@@ -76,6 +77,12 @@ class NetworkModule {
     @Provides
     fun providePlanetServiceBase(retrofit: Retrofit): PlanetServiceBase =
         retrofit.create(PlanetServiceBase::class.java)
+
+    @ApplicationScope
+    @Provides
+    fun provideResidentServiceBase(retrofit: Retrofit): ResidentServiceBase =
+        retrofit.create(ResidentServiceBase::class.java)
+
 
     companion object {
         private const val OKHTTP_TIMEOUT_SECONDS = 60L

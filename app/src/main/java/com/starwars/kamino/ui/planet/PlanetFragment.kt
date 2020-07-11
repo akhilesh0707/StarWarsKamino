@@ -57,6 +57,7 @@ class PlanetFragment : BaseFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        // Call get plant api
         viewModel.getPlanet()
         viewModel.planetUIModel.observe(viewLifecycleOwner, Observer {
             onUiModelChanged(it)
@@ -70,7 +71,6 @@ class PlanetFragment : BaseFragment() {
         imagePlanet.setOnClickListener {
             zoomImageFromThumb(it as ImageView)
         }
-
         // Retrieve and cache the system's default "short" animation time.
         shortAnimationDuration = resources.getInteger(android.R.integer.config_shortAnimTime)
     }
@@ -80,7 +80,7 @@ class PlanetFragment : BaseFragment() {
      * @param uiModel
      */
     private fun onUiModelChanged(uiModel: PlanetUIModel) {
-        if(uiModel.isRedelivered)
+        if (uiModel.isRedelivered)
             return
 
         when (uiModel) {

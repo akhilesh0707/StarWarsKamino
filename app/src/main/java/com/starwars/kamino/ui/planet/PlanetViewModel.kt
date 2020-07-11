@@ -20,8 +20,7 @@ sealed class PlanetUIModel : TransientAwareUiModel() {
 class PlanetViewModel @Inject constructor(private val repository: PlanetRepository) :
     BaseViewModel() {
 
-    private val _planetUIModel =
-        TransientAwareConsumerLiveData<PlanetUIModel>()
+    private val _planetUIModel = TransientAwareConsumerLiveData<PlanetUIModel>()
     var planetUIModel: LiveData<PlanetUIModel> = _planetUIModel
 
     companion object {

@@ -6,7 +6,7 @@ import io.reactivex.Single
 import javax.inject.Inject
 
 @ApplicationScope
-class DefaultPlanetService @Inject constructor(val service: PlanetServiceBase) : PlanetService {
+class DefaultPlanetService @Inject constructor(private val service: PlanetServiceBase) : PlanetService {
     override fun getPlanet(planetId: Int): Single<PlanetModel> {
         return service.fetchPlanetApi(planetId)
     }
