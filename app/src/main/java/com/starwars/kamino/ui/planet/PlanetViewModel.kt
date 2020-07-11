@@ -2,10 +2,10 @@ package com.starwars.kamino.ui.planet
 
 import androidx.lifecycle.LiveData
 import com.starwars.kamino.base.BaseViewModel
-import com.starwars.kamino.di.utils.TransientAwareConsumerLiveData
-import com.starwars.kamino.di.utils.TransientAwareUiModel
-import com.starwars.kamino.di.utils.addTo
-import com.starwars.kamino.di.utils.runOnBackground
+import com.starwars.kamino.utils.TransientAwareConsumerLiveData
+import com.starwars.kamino.utils.TransientAwareUiModel
+import com.starwars.kamino.utils.addTo
+import com.starwars.kamino.utils.runOnBackground
 import com.starwars.kamino.ui.planet.model.PlanetModel
 import com.starwars.kamino.ui.planet.repository.PlanetRepository
 import timber.log.Timber
@@ -20,7 +20,8 @@ sealed class PlanetUIModel : TransientAwareUiModel() {
 class PlanetViewModel @Inject constructor(private val repository: PlanetRepository) :
     BaseViewModel() {
 
-    private val _planetUIModel = TransientAwareConsumerLiveData<PlanetUIModel>()
+    private val _planetUIModel =
+        TransientAwareConsumerLiveData<PlanetUIModel>()
     var planetUIModel: LiveData<PlanetUIModel> = _planetUIModel
 
     companion object {

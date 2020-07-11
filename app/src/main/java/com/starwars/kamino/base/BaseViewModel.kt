@@ -1,7 +1,7 @@
 package com.starwars.kamino.base
 
 import androidx.lifecycle.ViewModel
-import com.starwars.kamino.di.utils.SchedulerProvider
+import com.starwars.kamino.utils.SchedulerProvider
 import io.reactivex.disposables.CompositeDisposable
 
 abstract class BaseViewModel : ViewModel() {

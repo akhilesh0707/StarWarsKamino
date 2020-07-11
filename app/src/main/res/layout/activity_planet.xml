@@ -7,6 +7,16 @@
     android:padding="@dimen/default_activity_padding"
     tools:context=".ui.planet.PlanetActivity">
 
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textPlanetName"
         android:layout_width="wrap_content"
@@ -54,6 +64,7 @@
     </LinearLayout>
 
     <View
+        android:id="@+id/viewDivider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="@dimen/default_activity_padding"
@@ -62,5 +73,75 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layoutLike" />
 
+    <TextView
+        android:id="@+id/textPopulation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_activity_padding"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewDivider"
+        tools:text="@string/text_population" />
+
+    <TextView
+        android:id="@+id/textClimate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textPopulation"
+        tools:text="@string/text_climate" />
+
+    <TextView
+        android:id="@+id/textRotationPeriod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textClimate"
+        tools:text="@string/text_rotation_period" />
+
+    <TextView
+        android:id="@+id/textOrbitalPeriod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textRotationPeriod"
+        tools:text="@string/text_orbital_period" />
+
+    <TextView
+        android:id="@+id/textGravity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textOrbitalPeriod"
+        tools:text="@string/text_gravity" />
+
+    <TextView
+        android:id="@+id/textSurfaceWater"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textGravity"
+        tools:text="@string/text_surface_water" />
+
+    <TextView
+        android:id="@+id/textTerrain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textSurfaceWater"
+        tools:text="@string/text_terrain" />
+
+    <Button
+        android:id="@+id/showResidentsButton"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/default_activity_padding"
+        android:padding="@dimen/default_activity_padding"
+        android:text="@string/text_button_residents"
+        android:textColor="@color/colorWhite"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

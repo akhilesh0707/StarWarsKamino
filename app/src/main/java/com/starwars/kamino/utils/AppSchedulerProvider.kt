@@ -1,4 +1,4 @@
-package com.starwars.kamino.di.utils
+package com.starwars.kamino.utils
 
 import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers

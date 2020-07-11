@@ -1,4 +1,4 @@
-package com.starwars.kamino.di.utils
+package com.starwars.kamino.utils
 
 import io.reactivex.Scheduler
 
@@ -8,6 +8,7 @@ interface SchedulerProvider {
     fun mainThread(): Scheduler
 
     companion object {
-        fun getInstance(): SchedulerProvider = AppSchedulerProvider.instance
+        fun getInstance(): SchedulerProvider =
+            AppSchedulerProvider.instance
     }
 }

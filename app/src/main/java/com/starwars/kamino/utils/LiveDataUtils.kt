@@ -1,4 +1,4 @@
-package com.starwars.kamino.di.utils
+package com.starwars.kamino.utils
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
