@@ -24,9 +24,7 @@ abstract class BaseActivity : AppCompatActivity(), Injectable {
 
     override fun onStop() {
         super.onStop()
-        connectivityManager?.let {
-            unregisterNetworkConnectivityListener()
-        }
+        unregisterNetworkConnectivityListener()
     }
 
     private fun unregisterNetworkConnectivityListener() {

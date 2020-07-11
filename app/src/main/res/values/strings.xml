@@ -12,4 +12,6 @@
     <string name="text_terrain">Terrain: %1$s</string>
     <string name="text_button_residents">Planet Residents</string>
     <string name="residents_title">Residents</string>
+    <string name="description_zoom_touch_close">Touch to close zoom</string>
+    <string name="description_zoom_touch">Touch to zoom</string>
 </resources>
