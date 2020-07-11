@@ -1,6 +1,6 @@
 package com.starwars.kamino.di.modules
 
-import com.starwars.kamino.ui.planet.PlanetActivity
+import com.starwars.kamino.ui.HostActivity
 import com.starwars.kamino.di.scopes.ActivityScope
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -10,5 +10,5 @@ abstract class ActivitiesModule {
 
     @ActivityScope
     @ContributesAndroidInjector
-    abstract fun contributeMainActivity(): PlanetActivity
+    abstract fun contributeMainActivity(): HostActivity
 }

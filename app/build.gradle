@@ -37,6 +37,9 @@ dependencies {
     implementation appDependencies.cardview
     implementation appDependencies.appcompat
     implementation appDependencies.material
+    implementation appDependencies.navigationFragment
+    implementation appDependencies.navigationUi
+    implementation appDependencies.legacySupport
     implementation appDependencies.swipeRefreshLayout
     implementation appDependencies.lifecycle
     implementation appDependencies.recyclerview
@@ -59,6 +62,7 @@ dependencies {
     // Dagger
     implementation appDependencies.daggerAndroid
     implementation appDependencies.daggerAndroidSupport
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt appDependencies.compiler
     kapt appDependencies.daggerCompiler
     kapt appDependencies.daggerAndroidProcessor

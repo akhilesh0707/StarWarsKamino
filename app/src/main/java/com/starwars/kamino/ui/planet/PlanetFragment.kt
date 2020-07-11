@@ -1,20 +1,23 @@
 package com.starwars.kamino.ui.planet
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.RequestManager
 import com.starwars.kamino.R
-import com.starwars.kamino.base.BaseActivity
+import com.starwars.kamino.base.BaseFragment
 import com.starwars.kamino.ui.planet.model.PlanetModel
 import com.starwars.kamino.utils.bindViewModel
 import com.starwars.kamino.utils.makeGone
 import com.starwars.kamino.utils.makeVisible
-import kotlinx.android.synthetic.main.activity_planet.*
+import kotlinx.android.synthetic.main.fragment_planet.*
 import timber.log.Timber
 import javax.inject.Inject
 
-class PlanetActivity : BaseActivity() {
+class PlanetFragment : BaseFragment() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -23,11 +26,19 @@ class PlanetActivity : BaseActivity() {
     lateinit var requestManager: RequestManager
     private val viewModel by bindViewModel<PlanetViewModel>(lazy { viewModelFactory })
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_planet)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_planet, container, false)
+        return view
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
         viewModel.getPlanet()
-        viewModel.planetUIModel.observe(this, Observer {
+        viewModel.planetUIModel.observe(viewLifecycleOwner, Observer {
             onUiModelChanged(it)
         })
     }

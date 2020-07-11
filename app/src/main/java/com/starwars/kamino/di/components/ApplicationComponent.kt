@@ -12,6 +12,7 @@ import dagger.android.AndroidInjectionModule
         AndroidInjectionModule::class,
         ApplicationModule::class,
         ActivitiesModule::class,
+        FragmentsModule::class,
         NetworkModule::class,
         ViewModelModule::class,
         RepositoryModule::class,
