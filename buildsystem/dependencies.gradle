@@ -7,6 +7,7 @@ ext {
     daggerVersion = '2.21'
     rxJavaVersion = '2.1.1'
     constraintLayoutVersion = '1.1.3'
+    coordinatorLayoutVersion = '1.1.0'
     ktxVersion = '1.1.0'
     recyclerViewVersion = '1.1.0'
     cardViewVersion = '1.0.0'
@@ -32,7 +33,8 @@ ext {
             material              : "com.google.android.material:material:${materialVersion}",
             swipeRefreshLayout    : "androidx.swiperefreshlayout:swiperefreshlayout:${swipeRefreshVersion}",
             ktx                   : "androidx.core:core-ktx:${ktxVersion}",
-            constraintlayout      : "androidx.constraintlayout:constraintlayout:${constraintLayoutVersion}",
+            constraintLayout      : "androidx.constraintlayout:constraintlayout:${constraintLayoutVersion}",
+            coordinatorLayout     : "androidx.coordinatorlayout:coordinatorlayout:${coordinatorLayoutVersion}",
             recyclerview          : "androidx.recyclerview:recyclerview:${recyclerViewVersion}",
             cardview              : "androidx.cardview:cardview:${cardViewVersion}",
             glide                 : "com.github.bumptech.glide:glide:${glideVersion}",

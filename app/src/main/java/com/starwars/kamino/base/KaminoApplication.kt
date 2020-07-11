@@ -18,10 +18,9 @@ open class KaminoApplication : Application(), HasActivityInjector, HasSupportFra
 
     @Inject
     lateinit var activityInjector: DispatchingAndroidInjector<Activity>
+
     @Inject
     lateinit var fragmentInjector: DispatchingAndroidInjector<Fragment>
-
-    lateinit var applicationComponent: ApplicationComponent
 
     override fun activityInjector(): AndroidInjector<Activity> {
         return activityInjector
@@ -34,11 +33,11 @@ open class KaminoApplication : Application(), HasActivityInjector, HasSupportFra
     override fun onCreate() {
         super.onCreate()
 
-        applicationComponent = DaggerApplicationComponent.builder()
+        DaggerApplicationComponent.builder()
             .applicationModule(ApplicationModule(this))
             .networkModule(NetworkModule())
             .build()
-        applicationComponent.inject(this)
+            .inject(this)
 
         applyAutoInjector()
     }

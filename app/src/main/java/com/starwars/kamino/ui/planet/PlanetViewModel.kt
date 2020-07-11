@@ -8,8 +8,6 @@ import com.starwars.kamino.di.utils.addTo
 import com.starwars.kamino.di.utils.runOnBackground
 import com.starwars.kamino.ui.planet.model.PlanetModel
 import com.starwars.kamino.ui.planet.repository.PlanetRepository
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -29,6 +27,9 @@ class PlanetViewModel @Inject constructor(private val repository: PlanetReposito
         private const val KAMINO_PLANET_ID = 10
     }
 
+    /**
+     * Get planet information from [PlanetRepository] using planet id passing hardcoded planet Id [KAMINO_PLANET_ID]
+     */
     fun getPlanet() {
         repository.getPlanet(KAMINO_PLANET_ID)
             .runOnBackground(schedulerProvider)

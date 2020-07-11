@@ -40,7 +40,8 @@ dependencies {
     implementation appDependencies.swipeRefreshLayout
     implementation appDependencies.lifecycle
     implementation appDependencies.recyclerview
-    implementation appDependencies.constraintlayout
+    implementation appDependencies.constraintLayout
+    implementation appDependencies.coordinatorLayout
     implementation appDependencies.timber
 
     // Retrofit

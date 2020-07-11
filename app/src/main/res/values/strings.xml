@@ -1,4 +1,5 @@
 <resources>
-    <string name="app_name">Star Wars Kamino</string>
+    <string name="app_name">Star Wars</string>
     <string name="no_internet_connection">No internet available, please check your connected WIFi or Data</string>
+    <string name="text_like">Like</string>
 </resources>
