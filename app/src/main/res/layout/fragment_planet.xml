@@ -8,7 +8,7 @@
     tools:context=".ui.HostActivity">
 
     <ProgressBar
-        android:id="@+id/progress"
+        android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
@@ -131,7 +131,7 @@
         tools:text="@string/text_terrain" />
 
     <Button
-        android:id="@+id/showResidentsButton"
+        android:id="@+id/buttonResidents"
         style="@style/Widget.MaterialComponents.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

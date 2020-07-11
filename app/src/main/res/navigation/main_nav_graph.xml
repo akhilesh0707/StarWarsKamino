@@ -2,14 +2,28 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mainNavigationGraph"
+    android:id="@+id/navigation_graph"
     app:startDestination="@id/planetFragment">
 
     <fragment
         android:id="@+id/planetFragment"
         android:name="com.starwars.kamino.ui.planet.PlanetFragment"
-        android:label="@string/app_name"
+        android:label="@string/planet_title"
         tools:layout="@layout/fragment_planet">
-
+        <action
+            android:id="@+id/directionResidents"
+            app:destination="@id/residentsFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/residentsFragment"
+        android:name="com.starwars.kamino.ui.residents.ResidentsFragment"
+        android:label="@string/residents_title"
+        tools:layout="@layout/fragment_residents">
+        <argument
+            android:name="planet"
+            app:argType="com.starwars.kamino.ui.planet.model.PlanetModel" />
+    </fragment>
+
+
 </navigation>

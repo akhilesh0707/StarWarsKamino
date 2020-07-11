@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import com.bumptech.glide.RequestManager
 import com.starwars.kamino.R
 import com.starwars.kamino.base.BaseFragment
@@ -24,6 +25,7 @@ class PlanetFragment : BaseFragment() {
 
     @Inject
     lateinit var requestManager: RequestManager
+    private lateinit var planetModel: PlanetModel
     private val viewModel by bindViewModel<PlanetViewModel>(lazy { viewModelFactory })
 
     override fun onCreateView(
@@ -41,6 +43,9 @@ class PlanetFragment : BaseFragment() {
         viewModel.planetUIModel.observe(viewLifecycleOwner, Observer {
             onUiModelChanged(it)
         })
+        buttonResidents.setOnClickListener {
+            navigateToResidents(it, planetModel)
+        }
     }
 
     /**
@@ -50,18 +55,22 @@ class PlanetFragment : BaseFragment() {
     private fun onUiModelChanged(uiModel: PlanetUIModel) {
         when (uiModel) {
             is PlanetUIModel.Loading -> {
-                progress.makeVisible()
+                progressBar.makeVisible()
             }
             is PlanetUIModel.Success -> {
-                progress.makeGone()
-                // Set planet header information
-                bindPlanetHeader(uiModel.planetModel)
-                // Set planet all the detail
-                bindPlanetDetail(uiModel.planetModel)
-                Timber.d(uiModel.planetModel.toString())
+                progressBar.makeGone()
+                uiModel.planetModel.let {
+                    planetModel = it
+                    // Set planet header information
+                    bindPlanetHeader(it)
+                    // Set planet all the detail
+                    bindPlanetDetail(it)
+                    Timber.d(it.toString())
+                }
+
             }
             is PlanetUIModel.Error -> {
-                progress.makeGone()
+                progressBar.makeGone()
                 Timber.e(uiModel.error)
             }
         }
@@ -91,5 +100,11 @@ class PlanetFragment : BaseFragment() {
         textSurfaceWater.text =
             getString(R.string.text_surface_water, planetModel.surfaceWater.toString())
         textTerrain.text = getString(R.string.text_terrain, planetModel.terrain)
+    }
+
+    private fun navigateToResidents(view: View, planetModel: PlanetModel) {
+        // Navigate to the ResidentListFragment using navController and safeArgs
+        val action = PlanetFragmentDirections.directionResidents(planetModel)
+        view.findNavController().navigate(action)
     }
 }

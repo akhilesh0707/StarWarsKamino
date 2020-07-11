@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.starwars.kamino.di.utils.ViewModelKey
 import com.starwars.kamino.di.utils.ViewModelProviderFactory
 import com.starwars.kamino.ui.planet.PlanetViewModel
+import com.starwars.kamino.ui.residents.ResidentsViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -20,4 +21,8 @@ internal abstract class ViewModelModule {
     @ViewModelKey(PlanetViewModel::class)
     abstract fun bindPlanetViewModel(viewModel: PlanetViewModel): ViewModel
 
+    @Binds
+    @IntoMap
+    @ViewModelKey(ResidentsViewModel::class)
+    abstract fun bindResidentsViewModel(viewModel: ResidentsViewModel): ViewModel
 }
