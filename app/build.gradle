@@ -85,6 +85,7 @@ dependencies {
     testImplementation appDependencies.mockitoInline
     testImplementation appDependencies.robolectric
     testImplementation appDependencies.junitExt
+    testImplementation appDependencies.espressoCore
 
     androidTestImplementation appDependencies.junitExt
     androidTestImplementation appDependencies.espressoCore
