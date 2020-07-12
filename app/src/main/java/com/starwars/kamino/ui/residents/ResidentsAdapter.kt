@@ -15,22 +15,43 @@ class ResidentsAdapter(
     private val clickListener: OnResidentClickListener
 ) : RecyclerView.Adapter<ResidentsAdapter.ResidentViewHolder>() {
 
+    /**
+     * Create view holder using layout inflater
+     * @param parent
+     * @param viewType
+     */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResidentViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.recycler_view_item, parent, false)
         return ResidentViewHolder(view)
     }
 
+    /**
+     * Get number of item count
+     */
     override fun getItemCount(): Int {
         return residentList.size
     }
 
+    /**
+     * Bind data to view holder from resident list
+     * @param holder
+     * @param position
+     */
     override fun onBindViewHolder(holder: ResidentViewHolder, position: Int) {
         holder.bind(residentList[position])
     }
 
+    /**
+     * Resident view holder inner class
+     * @param itemView
+     */
     inner class ResidentViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
+        /**
+         * Bind resident image and name in UI
+         * @param resident
+         */
         fun bind(resident: ResidentModel) {
             with(itemView) {
                 textResident.text = resident.name
@@ -42,7 +63,13 @@ class ResidentsAdapter(
         }
     }
 
+    /**
+     * Resident click call back interface
+     */
     interface OnResidentClickListener {
+        /**
+         * Specific resident click listener
+         */
         fun onClick(selectedResident: ResidentModel)
     }
 }

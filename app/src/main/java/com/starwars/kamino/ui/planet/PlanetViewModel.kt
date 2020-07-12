@@ -49,7 +49,7 @@ class PlanetViewModel @Inject constructor(private val repository: PlanetReposito
      * and get the like count
      */
     fun likePlanet() {
-        repository.likPlanet(KAMINO_PLANET_ID)
+        repository.likePlanet(KAMINO_PLANET_ID)
             .runOnBackground(schedulerProvider)
             .toObservable()
             .map { PlanetUIModel.SuccessLike(it) as PlanetUIModel }

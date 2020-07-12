@@ -20,7 +20,7 @@ class DefaultPlanetRepository @Inject constructor(private val service: PlanetSer
      * Like planet and get like count API
      * @param planetId
      */
-    override fun likPlanet(planetId: Int): Single<LikeModel> {
+    override fun likePlanet(planetId: Int): Single<LikeModel> {
        return service.likePlanet(planetId)
     }
 }

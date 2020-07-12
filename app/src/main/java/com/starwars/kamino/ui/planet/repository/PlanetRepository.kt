@@ -16,5 +16,5 @@ interface PlanetRepository : Repository {
      * Like planet and get like count API
      * @param planetId
      */
-    fun likPlanet(planetId: Int): Single<LikeModel>
+    fun likePlanet(planetId: Int): Single<LikeModel>
 }

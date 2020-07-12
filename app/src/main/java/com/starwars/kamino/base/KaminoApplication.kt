@@ -3,11 +3,10 @@ package com.starwars.kamino.base
 import android.app.Activity
 import android.app.Application
 import androidx.fragment.app.Fragment
-import com.starwars.kamino.di.utils.applyAutoInjector
-import com.starwars.kamino.di.components.ApplicationComponent
 import com.starwars.kamino.di.components.DaggerApplicationComponent
 import com.starwars.kamino.di.modules.ApplicationModule
 import com.starwars.kamino.di.modules.NetworkModule
+import com.starwars.kamino.di.utils.applyAutoInjector
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
@@ -33,6 +32,7 @@ open class KaminoApplication : Application(), HasActivityInjector, HasSupportFra
     override fun onCreate() {
         super.onCreate()
 
+        // Bind dagger components
         DaggerApplicationComponent.builder()
             .applicationModule(ApplicationModule(this))
             .networkModule(NetworkModule())
