@@ -84,10 +84,14 @@ dependencies {
     testImplementation appDependencies.mockitoCore
     testImplementation appDependencies.mockitoInline
     testImplementation appDependencies.robolectric
+    testImplementation appDependencies.junitExt
 
     androidTestImplementation appDependencies.junitExt
     androidTestImplementation appDependencies.espressoCore
     androidTestImplementation appDependencies.espressoIdling
     androidTestImplementation appDependencies.espressoContrib
     androidTestImplementation appDependencies.espressoIntents
+
+    debugImplementation 'androidx.fragment:fragment-testing:1.2.5'
+
 }

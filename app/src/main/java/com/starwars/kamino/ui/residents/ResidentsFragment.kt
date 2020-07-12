@@ -78,7 +78,7 @@ class ResidentsFragment : BaseFragment(), ResidentsAdapter.OnResidentClickListen
      */
     override fun onClick(selectedResident: ResidentModel) {
         // Navigate to the ResidentDetailFragment using navController and safeArgs
-        val action = ResidentsFragmentDirections.directionResidentDetail(selectedResident)
+        val action = ResidentsFragmentDirections.actionFragmentResidentToDetail(selectedResident)
         findNavController().navigate(action)
     }
 

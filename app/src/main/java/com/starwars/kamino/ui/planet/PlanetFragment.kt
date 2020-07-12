@@ -14,7 +14,6 @@ import android.view.ViewGroup
 import android.view.animation.DecelerateInterpolator
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -100,9 +99,11 @@ class PlanetFragment : BaseFragment() {
 
     /**
      * Handle live data changes (start progress, get result and API error)
-     * @param uiModel
+     * @param uiModel : LiveData result
      */
     private fun onUiModelChanged(uiModel: PlanetUIModel) {
+        if (uiModel.isRedelivered)
+            return
 
         when (uiModel) {
             is PlanetUIModel.Loading -> {
@@ -133,7 +134,7 @@ class PlanetFragment : BaseFragment() {
 
     /**
      * Set like count and disabled like button click
-     * @param likeModel
+     * @param likeModel : Like count
      */
     private fun setLikeCount(likeModel: LikeModel) {
         textLikeCount.text = likeModel.likes.toString()
@@ -145,7 +146,7 @@ class PlanetFragment : BaseFragment() {
 
     /**
      * Set Planet name and planet image on top section
-     * @param planetModel
+     * @param planetModel : Planet detail
      */
     private fun setPlanetHeader(planetModel: PlanetModel) {
         textPlanetName.text = planetModel.name
@@ -154,7 +155,7 @@ class PlanetFragment : BaseFragment() {
 
     /**
      * Set Planet all detail (Population, Climate, Rotation period, Orbital period, Gravity, Surface water, Terrain)
-     * @param planetModel
+     * @param planetModel : Planet detail
      * */
     private fun setPlanetDetail(planetModel: PlanetModel) {
         textPopulation.text = getString(R.string.text_population, planetModel.population.toString())
@@ -169,16 +170,21 @@ class PlanetFragment : BaseFragment() {
         textTerrain.text = getString(R.string.text_terrain, planetModel.terrain)
     }
 
+    /**
+     * Navigate to Residents Screen
+     * @param view : View to find navigation controller
+     * @param planetModel : Planet detail with list of residents
+     */
     private fun navigateToResidents(view: View, planetModel: PlanetModel) {
         // Navigate to the ResidentsFragment using navController and safeArgs
-        val action = PlanetFragmentDirections.directionResidents(planetModel)
+        val action = PlanetFragmentDirections.actionFragmentPlanetToResident(planetModel)
         view.findNavController().navigate(action)
     }
 
     /**
      * Set planet image zoom and animation
      * Ref: https://developer.android.com/training/animation/zoom
-     * @param thumbView
+     * @param thumbView : Clicked image
      */
     private fun zoomImageFromThumb(thumbView: ImageView) {
         // If there's an animation in progress, cancel it
