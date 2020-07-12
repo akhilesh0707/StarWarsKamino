@@ -14,4 +14,14 @@
     <string name="residents_title">Residents</string>
     <string name="description_zoom_touch_close">Touch to close zoom</string>
     <string name="description_zoom_touch">Touch to zoom</string>
+    <string name="residents_detail_title">Resident Detail</string>
+    <string name="text_resident_name">Name: %1$s</string>
+    <string name="text_resident_gender">Gender: %1$s</string>
+    <string name="text_resident_birth_year">Birth year: %1$s</string>
+    <string name="text_resident_height">Height: %1$s</string>
+    <string name="text_resident_mass">Mass: %1$s</string>
+    <string name="text_resident_hair_color">Hair color: %1$s</string>
+    <string name="text_resident_skin_color">Skin color: %1$s</string>
+    <string name="text_resident_eye_color">Eye color: %1$s</string>
+
 </resources>

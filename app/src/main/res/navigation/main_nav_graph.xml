@@ -23,7 +23,19 @@
         <argument
             android:name="planet"
             app:argType="com.starwars.kamino.ui.planet.model.PlanetModel" />
+        <action
+            android:id="@+id/directionResidentDetail"
+            app:destination="@id/residentDetailFragment" />
     </fragment>
 
+    <fragment
+        android:id="@+id/residentDetailFragment"
+        android:name="com.starwars.kamino.ui.residentsdetail.ResidentsDetailFragment"
+        android:label="@string/residents_detail_title"
+        tools:layout="@layout/fragment_residents_detail">
+        <argument
+            android:name="resident"
+            app:argType="com.starwars.kamino.ui.residents.model.ResidentModel" />
+    </fragment>
 
 </navigation>

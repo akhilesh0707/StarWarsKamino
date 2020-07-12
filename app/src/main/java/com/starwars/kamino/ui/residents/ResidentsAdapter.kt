@@ -16,8 +16,9 @@ class ResidentsAdapter(
 ) : RecyclerView.Adapter<ResidentsAdapter.ResidentViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResidentViewHolder {
-        val rowView = LayoutInflater.from(parent.context).inflate(R.layout.recycler_view_item, parent, false)
-        return ResidentViewHolder(rowView)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.recycler_view_item, parent, false)
+        return ResidentViewHolder(view)
     }
 
     override fun getItemCount(): Int {

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/default_activity_padding"
+    tools:context=".ui.HostActivity">
+
+    <ImageView
+        android:id="@+id/imageResident"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:contentDescription="@string/residents_title"
+        android:padding="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin10"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="@dimen/margin10"
+        app:cardMaxElevation="@dimen/margin10"
+        app:contentPadding="@dimen/margin10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageResident">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textResidentName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/text_resident_name" />
+
+            <TextView
+                android:id="@+id/textResidentGender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textResidentName"
+                tools:text="@string/text_resident_gender" />
+
+            <TextView
+                android:id="@+id/textResidentBirthYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textResidentGender"
+                tools:text="@string/text_resident_birth_year" />
+
+            <TextView
+                android:id="@+id/textResidentHeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textResidentBirthYear"
+                tools:text="@string/text_resident_height" />
+
+            <TextView
+                android:id="@+id/textResidentMass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textResidentHeight"
+                tools:text="@string/text_resident_mass" />
+
+            <TextView
+                android:id="@+id/textResidentHairColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textResidentMass"
+                tools:text="@string/text_resident_hair_color" />
+
+            <TextView
+                android:id="@+id/textResidentSkinColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textResidentHairColor"
+                tools:text="@string/text_resident_skin_color" />
+
+            <TextView
+                android:id="@+id/textResidentEyeColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textResidentSkinColor"
+                tools:text="@string/text_resident_eye_color" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

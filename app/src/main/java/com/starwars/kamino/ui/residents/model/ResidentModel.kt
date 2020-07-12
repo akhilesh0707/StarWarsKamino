@@ -1,7 +1,10 @@
 package com.starwars.kamino.ui.residents.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class ResidentModel(
     @SerializedName("name") val name: String,
     @SerializedName("height") val height: String,
@@ -15,4 +18,4 @@ data class ResidentModel(
     @SerializedName("created") val created: String,
     @SerializedName("edited") val edited: String,
     @SerializedName("image_url") val imageUrl: String
-)
+): Parcelable
