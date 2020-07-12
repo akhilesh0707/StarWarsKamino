@@ -3,7 +3,7 @@ ext {
     appcompatVersion = '1.1.0'
     materialVersion = '1.1.0'
     navigationVersion = '2.2.1'
-    lagerySupport = '1.0.0'
+    lagecySupport = '1.0.0'
     swipeRefreshVersion = '1.0.0'
     retrofitVersion = '2.7.1'
     daggerVersion = '2.21'
@@ -23,11 +23,13 @@ ext {
     idlingResourceVersion = '3.2.0'
     shimmerVersion = '0.4.0'
     junitVersion = '4.12'
+    testCoreVersion = '1.0.0'
     mockitoCoreVersion = '2.19.0'
     mocktioInlineVersion = '2.13.0'
     archCoreTestingVersion = '1.1.1'
     extJunitVersion = '1.1.1'
     espressoVersion = '3.2.0'
+    robolectricVersion = '4.3'
 
     appDependencies = [
             kotlin                : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",
@@ -37,7 +39,7 @@ ext {
             ktx                   : "androidx.core:core-ktx:${ktxVersion}",
             navigationFragment    : "androidx.navigation:navigation-fragment-ktx:${navigationVersion}",
             navigationUi          : "androidx.navigation:navigation-ui-ktx:${navigationVersion}",
-            legacySupport         : "androidx.legacy:legacy-support-v4:${lagerySupport}",
+            legacySupport         : "androidx.legacy:legacy-support-v4:${lagecySupport}",
             constraintLayout      : "androidx.constraintlayout:constraintlayout:${constraintLayoutVersion}",
             coordinatorLayout     : "androidx.coordinatorlayout:coordinatorlayout:${coordinatorLayoutVersion}",
             recyclerview          : "androidx.recyclerview:recyclerview:${recyclerViewVersion}",
@@ -64,12 +66,13 @@ ext {
             junit                 : "junit:junit:${junitVersion}",
             mockitoCore           : "org.mockito:mockito-core:${mockitoCoreVersion}",
             mockitoInline         : "org.mockito:mockito-inline:${mocktioInlineVersion}",
+            testCore              : "androidx.test:core:${testCoreVersion}",
             archCore              : "android.arch.core:core-testing:${archCoreTestingVersion}",
             junitExt              : "androidx.test.ext:junit:${extJunitVersion}",
             espressoCore          : "androidx.test.espresso:espresso-core:${espressoVersion}",
             espressoContrib       : "androidx.test.espresso:espresso-contrib:${espressoVersion}",
             espressoIntents       : "androidx.test.espresso:espresso-intents:${espressoVersion}",
-            espressoIdling        : "androidx.test.espresso.idling:idling-concurrent:${espressoVersion}"
-
+            espressoIdling        : "androidx.test.espresso.idling:idling-concurrent:${espressoVersion}",
+            robolectric           : "org.robolectric:robolectric:${robolectricVersion}"
     ]
 }

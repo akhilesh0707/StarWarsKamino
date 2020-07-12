@@ -29,6 +29,12 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
 }
 
 dependencies {
@@ -66,15 +72,18 @@ dependencies {
     // Dagger
     implementation appDependencies.daggerAndroid
     implementation appDependencies.daggerAndroidSupport
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation appDependencies.legacySupport
+
     kapt appDependencies.compiler
     kapt appDependencies.daggerCompiler
     kapt appDependencies.daggerAndroidProcessor
 
     testImplementation appDependencies.junit
+    testImplementation appDependencies.testCore
     testImplementation appDependencies.archCore
     testImplementation appDependencies.mockitoCore
     testImplementation appDependencies.mockitoInline
+    testImplementation appDependencies.robolectric
 
     androidTestImplementation appDependencies.junitExt
     androidTestImplementation appDependencies.espressoCore

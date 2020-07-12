@@ -55,7 +55,7 @@ class ResidentsAdapter(
         fun bind(resident: ResidentModel) {
             with(itemView) {
                 textResident.text = resident.name
-                requestManager.load(resident.imageUrl).into(imageResident)
+                requestManager?.load(resident.imageUrl)?.into(imageResident)
                 setOnClickListener {
                     clickListener.onClick(resident)
                 }

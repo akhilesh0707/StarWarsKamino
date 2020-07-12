@@ -25,10 +25,9 @@ class PlanetViewModelTest {
         val schedulers = RxImmediateSchedulerRule()
     }
 
+    private lateinit var viewModel: PlanetViewModel
 
-    lateinit var viewModel: PlanetViewModel
-
-    lateinit var repository: PlanetRepository
+    private lateinit var repository: PlanetRepository
 
     @Before
     fun onSetup() {

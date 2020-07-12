@@ -2,7 +2,6 @@ package com.starwars.kamino.ui.residents
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.starwars.kamino.RxImmediateSchedulerRule
-import com.starwars.kamino.ui.planet.PlanetUIModel
 import com.starwars.kamino.ui.planet.model.PlanetModel
 import com.starwars.kamino.ui.residents.model.ResidentModel
 import com.starwars.kamino.ui.residents.repository.ResidentRepository
@@ -22,9 +21,9 @@ class ResidentsViewModelTest {
         val schedulers = RxImmediateSchedulerRule()
     }
 
-    lateinit var viewModel: ResidentsViewModel
+    private lateinit var viewModel: ResidentsViewModel
 
-    lateinit var repository: ResidentRepository
+    private lateinit var repository: ResidentRepository
 
     @Before
     fun onSetup() {
