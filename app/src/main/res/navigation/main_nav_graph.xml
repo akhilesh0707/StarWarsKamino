@@ -12,7 +12,11 @@
         tools:layout="@layout/fragment_planet">
         <action
             android:id="@+id/directionResidents"
-            app:destination="@id/residentsFragment" />
+            app:destination="@id/residentsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <fragment
@@ -25,7 +29,11 @@
             app:argType="com.starwars.kamino.ui.planet.model.PlanetModel" />
         <action
             android:id="@+id/directionResidentDetail"
-            app:destination="@id/residentDetailFragment" />
+            app:destination="@id/residentDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <fragment
