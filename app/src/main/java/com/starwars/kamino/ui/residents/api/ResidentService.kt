@@ -7,5 +7,9 @@ import io.reactivex.Observable
 import io.reactivex.Single
 
 interface ResidentService : RetrofitServiceWrapper {
+    /**
+     * Get individual resident detail using resident id
+     * @param residentId
+     */
     fun getResident(residentId: Int): Observable<ResidentModel>
 }

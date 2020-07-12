@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -42,14 +43,26 @@ class ResidentsFragment : BaseFragment(), ResidentsAdapter.OnResidentClickListen
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         val planet: PlanetModel? = arguments?.getParcelable(PLANET_ARG_KEY) as? PlanetModel
+
+        // Set planet model to viewmodel and call get resident API
         viewModel.planet = planet
         viewModel.getResident()
         viewModel.residentUIModel.observe(viewLifecycleOwner, Observer {
             onUiModelChanged(it)
         })
+
+        // Bind recyclerview adapter
         bindResidentList()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        viewModel.residentUIModel.removeObservers(this)
+    }
+
+    /**
+     * Bind resident adapter to recyclerview
+     */
     private fun bindResidentList() {
         residentsAdapter = ResidentsAdapter(viewModel.residentList, requestManager, this)
         recyclerView.apply {
@@ -59,8 +72,12 @@ class ResidentsFragment : BaseFragment(), ResidentsAdapter.OnResidentClickListen
         }
     }
 
+    /**
+     * On resident click redirecting to detail fragment
+     * @param selectedResident
+     */
     override fun onClick(selectedResident: ResidentModel) {
-        // Navigate to the ResidentListFragment using navController and safeArgs
+        // Navigate to the ResidentDetailFragment using navController and safeArgs
         val action = ResidentsFragmentDirections.directionResidentDetail(selectedResident)
         findNavController().navigate(action)
     }
@@ -86,6 +103,7 @@ class ResidentsFragment : BaseFragment(), ResidentsAdapter.OnResidentClickListen
             }
             is ResidentUIModel.Error -> {
                 progressBar.makeGone()
+                Toast.makeText(this.context, uiModel.error, Toast.LENGTH_LONG).show()
                 Timber.e(uiModel.error)
             }
         }

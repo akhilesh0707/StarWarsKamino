@@ -6,7 +6,13 @@ import io.reactivex.Observable
 import javax.inject.Inject
 
 @ApplicationScope
-class DefaultResidentService @Inject constructor(private val service: ResidentServiceBase) : ResidentService {
+class DefaultResidentService @Inject constructor(private val service: ResidentServiceBase) :
+    ResidentService {
+
+    /**
+     * Get individual resident detail using resident id
+     * @param residentId
+     */
     override fun getResident(residentId: Int): Observable<ResidentModel> {
         return service.fetchResidentApi(residentId)
     }

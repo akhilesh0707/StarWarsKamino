@@ -7,6 +7,10 @@ import retrofit2.http.Path
 
 interface ResidentServiceBase {
 
+    /**
+     * Get individual resident detail using resident id from API
+     * @param id
+     */
     @GET("residents/{id}")
     fun fetchResidentApi(@Path("id") id: Int): Observable<ResidentModel>
 }

@@ -13,12 +13,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.DecelerateInterpolator
 import android.widget.ImageView
+import android.widget.Toast
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.bumptech.glide.RequestManager
 import com.starwars.kamino.R
 import com.starwars.kamino.base.BaseFragment
+import com.starwars.kamino.ui.planet.model.LikeModel
 import com.starwars.kamino.ui.planet.model.PlanetModel
 import com.starwars.kamino.utils.bindViewModel
 import com.starwars.kamino.utils.makeGone
@@ -51,28 +54,48 @@ class PlanetFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_planet, container, false)
-        return view
+        return inflater.inflate(R.layout.fragment_planet, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
         // Call get plant api
         viewModel.getPlanet()
         viewModel.planetUIModel.observe(viewLifecycleOwner, Observer {
             onUiModelChanged(it)
         })
 
+        // Bind click listeners
+        bindClickListeners()
+
+        // Retrieve and cache the system's default "short" animation time.
+        shortAnimationDuration = resources.getInteger(android.R.integer.config_shortAnimTime)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        viewModel.planetUIModel.removeObservers(this)
+    }
+
+    /**
+     * Bind all click listeners
+     */
+    private fun bindClickListeners() {
         // Bind click on residents button
         buttonResidents.setOnClickListener {
             navigateToResidents(it, planetModel)
         }
+
         // Bind clicks on the thumbnail views.
         imagePlanet.setOnClickListener {
             zoomImageFromThumb(it as ImageView)
         }
-        // Retrieve and cache the system's default "short" animation time.
-        shortAnimationDuration = resources.getInteger(android.R.integer.config_shortAnimTime)
+
+        // Bind like click
+        imageLike.setOnClickListener {
+            viewModel.likePlanet()
+        }
     }
 
     /**
@@ -80,8 +103,6 @@ class PlanetFragment : BaseFragment() {
      * @param uiModel
      */
     private fun onUiModelChanged(uiModel: PlanetUIModel) {
-        if (uiModel.isRedelivered)
-            return
 
         when (uiModel) {
             is PlanetUIModel.Loading -> {
@@ -92,17 +113,33 @@ class PlanetFragment : BaseFragment() {
                 uiModel.planetModel.let {
                     planetModel = it
                     // Set planet header information
-                    bindPlanetHeader(it)
+                    setPlanetHeader(it)
                     // Set planet all the detail
-                    bindPlanetDetail(it)
+                    setPlanetDetail(it)
                     Timber.d(it.toString())
                 }
-
+            }
+            is PlanetUIModel.SuccessLike -> {
+                progressBar.makeGone()
+                setLikeCount(uiModel.likeModel)
             }
             is PlanetUIModel.Error -> {
                 progressBar.makeGone()
+                Toast.makeText(this.context, uiModel.error, Toast.LENGTH_LONG).show()
                 Timber.e(uiModel.error)
             }
+        }
+    }
+
+    /**
+     * Set like count and disabled like button click
+     * @param likeModel
+     */
+    private fun setLikeCount(likeModel: LikeModel) {
+        textLikeCount.text = likeModel.likes.toString()
+        imageLike.apply {
+            isClickable = false
+            setImageResource(R.drawable.ic_like)
         }
     }
 
@@ -110,7 +147,7 @@ class PlanetFragment : BaseFragment() {
      * Set Planet name and planet image on top section
      * @param planetModel
      */
-    private fun bindPlanetHeader(planetModel: PlanetModel) {
+    private fun setPlanetHeader(planetModel: PlanetModel) {
         textPlanetName.text = planetModel.name
         requestManager.load(planetModel.imageUrl).into(imagePlanet)
     }
@@ -119,7 +156,7 @@ class PlanetFragment : BaseFragment() {
      * Set Planet all detail (Population, Climate, Rotation period, Orbital period, Gravity, Surface water, Terrain)
      * @param planetModel
      * */
-    private fun bindPlanetDetail(planetModel: PlanetModel) {
+    private fun setPlanetDetail(planetModel: PlanetModel) {
         textPopulation.text = getString(R.string.text_population, planetModel.population.toString())
         textClimate.text = getString(R.string.text_climate, planetModel.climate)
         textRotationPeriod.text =
@@ -133,7 +170,7 @@ class PlanetFragment : BaseFragment() {
     }
 
     private fun navigateToResidents(view: View, planetModel: PlanetModel) {
-        // Navigate to the ResidentListFragment using navController and safeArgs
+        // Navigate to the ResidentsFragment using navController and safeArgs
         val action = PlanetFragmentDirections.directionResidents(planetModel)
         view.findNavController().navigate(action)
     }

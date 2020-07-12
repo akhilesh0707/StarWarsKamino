@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="150dp"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -34,8 +34,8 @@
 
         <ImageView
             android:id="@+id/imagePlanet"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_marginTop="@dimen/default_activity_padding"
             android:contentDescription="@string/description_zoom_touch"
             app:layout_constraintEnd_toEndOf="parent"
@@ -49,8 +49,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingTop="@dimen/default_activity_padding"
-
+            android:layout_marginTop="@dimen/default_activity_padding"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imagePlanet">
@@ -74,7 +73,10 @@
             android:id="@+id/cardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin10"
+            android:layout_marginTop="@dimen/default_activity_padding"
+            android:layout_marginBottom="@dimen/margin10"
+            android:layout_marginLeft="@dimen/margin10"
+            android:layout_marginRight="@dimen/margin10"
             app:cardCornerRadius="0dp"
             app:cardElevation="@dimen/margin10"
             app:cardMaxElevation="@dimen/margin10"
