@@ -31,9 +31,9 @@ class ResidentsViewModel @Inject constructor(private val repository: ResidentRep
      * Get resident from Resident repository [repository]
      */
     fun getResident() {
-        planet?.let {
+        planet?.let { planet ->
             Observable
-                .fromIterable(it.residents)
+                .fromIterable(planet.residents)
                 .concatMap {
                     val residentId = getResidentId(it)
                     repository.getResident(residentId)
