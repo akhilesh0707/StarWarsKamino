@@ -93,6 +93,5 @@ dependencies {
     androidTestImplementation appDependencies.espressoContrib
     androidTestImplementation appDependencies.espressoIntents
 
-    debugImplementation 'androidx.fragment:fragment-testing:1.2.5'
-
+    debugImplementation appDependencies.fragmentTest
 }

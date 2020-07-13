@@ -6,11 +6,16 @@
 ![Star War Kamino](https://media.giphy.com/media/fXPUprIulHVxGNg0Ma/giphy.gif)
 
 ## Description
-Star Wars Kamino planet app implemented using MVVM architecture, Jetpack component, Dagger 2, RxJava, Retrofit, Glide, It connects to the [StarWars 2 Api](http://docs.starwars2.apiary.io/) and fetch planet information, planet resident, etc.
+This app implemented using MVVM architecture, Jetpack component, Dagger 2, RxJava, Retrofit, Glide, It connects to the [StarWars 2 Api](http://docs.starwars2.apiary.io/) and fetch planet information, planet resident, etc.
 
 1. First screen displaying Kamino planet information, on clicking of planet thumbnail showing zoomed image, on like click calling the liked api
 2. Second screen displaying the list of planet residents.
 3. Third screen displaying the specific resident detailed information.
+
+## Improvement Needed
+1. Use DataBinding
+2. UI state saving
+3. UI improvement
 
 ## Tech Stack
 - Dagger 2 - Used to provide dependency injection

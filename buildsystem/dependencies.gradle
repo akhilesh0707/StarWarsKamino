@@ -30,6 +30,7 @@ ext {
     extJunitVersion = '1.1.1'
     espressoVersion = '3.2.0'
     robolectricVersion = '4.3'
+    fragmentTestVersion = "1.2.5"
 
     appDependencies = [
             kotlin                : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",
@@ -73,6 +74,7 @@ ext {
             espressoContrib       : "androidx.test.espresso:espresso-contrib:${espressoVersion}",
             espressoIntents       : "androidx.test.espresso:espresso-intents:${espressoVersion}",
             espressoIdling        : "androidx.test.espresso.idling:idling-concurrent:${espressoVersion}",
+            fragmentTest          : "androidx.fragment:fragment-testing:${fragmentTestVersion}",
             robolectric           : "org.robolectric:robolectric:${robolectricVersion}"
     ]
 }
