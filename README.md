@@ -14,8 +14,9 @@ This app implemented using MVVM architecture, Jetpack component, Dagger 2, RxJav
 
 ## Improvement Needed
 1. Use DataBinding
-2. UI state saving
-3. UI improvement
+2. Add more unit tests
+3. UI state saving
+4. UI improvement
 
 ## Tech Stack
 - Dagger 2 - Used to provide dependency injection
