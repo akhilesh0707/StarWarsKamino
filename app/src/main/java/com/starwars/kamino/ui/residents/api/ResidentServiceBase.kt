@@ -9,7 +9,7 @@ interface ResidentServiceBase {
 
     /**
      * Get individual resident detail using resident id from API
-     * @param id
+     * @param id : Resident id
      */
     @GET("residents/{id}")
     fun fetchResidentApi(@Path("id") id: Int): Observable<ResidentModel>

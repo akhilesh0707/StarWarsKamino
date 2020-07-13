@@ -30,7 +30,7 @@ class PlanetFragment : BaseFragment() {
     @Inject
     lateinit var requestManager: RequestManager
     private val viewModel by bindViewModel<PlanetViewModel>(lazy { viewModelFactory })
-    private lateinit var planetModel: PlanetModel
+    private var planetModel: PlanetModel?=null
 
     // The system "short" animation time duration, in milliseconds. This
     // duration is ideal for subtle animations or animations that occur
@@ -49,11 +49,12 @@ class PlanetFragment : BaseFragment() {
         super.onActivityCreated(savedInstanceState)
 
         // Call get plant api
-        viewModel.getPlanet()
-        viewModel.planetUIModel.observe(viewLifecycleOwner, Observer {
-            onUiModelChanged(it)
-        })
-
+        viewModel.apply {
+            getPlanet()
+            planetUIModel.observe(viewLifecycleOwner, Observer {
+                onUiModelChanged(it)
+            })
+        }
         // Bind click listeners
         bindClickListeners()
 
@@ -71,8 +72,10 @@ class PlanetFragment : BaseFragment() {
      */
     private fun bindClickListeners() {
         // Bind click on residents button
-        buttonResidents.setOnClickListener {
-            navigateToResidents(it, planetModel)
+        buttonResidents.setOnClickListener {view ->
+            planetModel?.let{
+                navigateToResidents(view, it)
+            }
         }
 
         // Bind clicks on the thumbnail views.

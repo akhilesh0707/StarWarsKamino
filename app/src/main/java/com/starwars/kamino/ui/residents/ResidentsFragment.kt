@@ -29,27 +29,28 @@ class ResidentsFragment : BaseFragment(), ResidentsAdapter.OnResidentClickListen
     @Inject
     lateinit var requestManager: RequestManager
     private val viewModel by bindViewModel<ResidentsViewModel>(lazy { viewModelFactory })
-    lateinit var residentsAdapter: ResidentsAdapter
+    private lateinit var residentsAdapter: ResidentsAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_residents, container, false)
-        return view
+        return inflater.inflate(R.layout.fragment_residents, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         val planet: PlanetModel? = arguments?.getParcelable(PLANET_ARG_KEY) as? PlanetModel
 
-        // Set planet model to viewmodel and call get resident API
-        viewModel.planet = planet
-        viewModel.getResident()
-        viewModel.residentUIModel.observe(viewLifecycleOwner, Observer {
-            onUiModelChanged(it)
-        })
+        // Set planet model to view model and call get resident API
+        viewModel.apply {
+            this.planet = planet
+            getResident()
+            residentUIModel.observe(viewLifecycleOwner, Observer {
+                onUiModelChanged(it)
+            })
+        }
 
         // Bind recyclerview adapter
         bindResidentList()

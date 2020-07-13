@@ -5,11 +5,12 @@ import com.starwars.kamino.ui.residents.model.ResidentModel
 import io.reactivex.Observable
 import javax.inject.Inject
 
-class DefaultResidentRepository @Inject constructor(private val service: ResidentService) : ResidentRepository {
+class DefaultResidentRepository @Inject constructor(private val service: ResidentService) :
+    ResidentRepository {
 
     /**
      * Get individual resident detail using resident id
-     * @param residentId
+     * @param residentId : Resident id
      */
     override fun getResident(residentId: Int): Observable<ResidentModel> {
         return service.getResident(residentId)

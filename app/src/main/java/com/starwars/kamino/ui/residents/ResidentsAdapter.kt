@@ -17,8 +17,8 @@ class ResidentsAdapter(
 
     /**
      * Create view holder using layout inflater
-     * @param parent
-     * @param viewType
+     * @param parent : Parent view
+     * @param viewType : View type
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResidentViewHolder {
         val view =
@@ -35,8 +35,8 @@ class ResidentsAdapter(
 
     /**
      * Bind data to view holder from resident list
-     * @param holder
-     * @param position
+     * @param holder : View holder
+     * @param position : item position
      */
     override fun onBindViewHolder(holder: ResidentViewHolder, position: Int) {
         holder.bind(residentList[position])
@@ -44,13 +44,13 @@ class ResidentsAdapter(
 
     /**
      * Resident view holder inner class
-     * @param itemView
+     * @param itemView : Root view
      */
     inner class ResidentViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         /**
          * Bind resident image and name in UI
-         * @param resident
+         * @param resident : Resident information
          */
         fun bind(resident: ResidentModel) {
             with(itemView) {

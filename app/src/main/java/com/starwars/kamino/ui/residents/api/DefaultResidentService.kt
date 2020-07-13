@@ -11,7 +11,7 @@ class DefaultResidentService @Inject constructor(private val service: ResidentSe
 
     /**
      * Get individual resident detail using resident id
-     * @param residentId
+     * @param residentId : Resident id
      */
     override fun getResident(residentId: Int): Observable<ResidentModel> {
         return service.fetchResidentApi(residentId)

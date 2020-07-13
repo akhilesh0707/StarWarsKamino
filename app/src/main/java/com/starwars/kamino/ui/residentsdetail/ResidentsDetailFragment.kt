@@ -40,7 +40,7 @@ class ResidentsDetailFragment : BaseFragment() {
 
     /**
      * Bind resident all information to UI (profile pic, name, gender, etc...)
-     * @param resident
+     * @param resident : Resident information
      */
     private fun bindResidentDetail(resident: ResidentModel) {
         // Load resident profile image

@@ -7,7 +7,7 @@ import io.reactivex.Observable
 interface ResidentRepository : Repository {
     /**
      * Get Resident from API
-     * @param residentId
+     * @param residentId : Resident id
      */
     fun getResident(residentId: Int): Observable<ResidentModel>
 }
